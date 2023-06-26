@@ -53,7 +53,7 @@ fill='pink', state=HIDDEN)
 
 c.pack
 
-root.after(1000,blink)
+root.after(1000, blink)
 def show_happy(event):
   if (20 <= event.x <=350) and (20 <= event.y <= 350):
     c.itemconfigure(cheek_left, state=NORMAL)
@@ -68,3 +68,7 @@ def hide_happy(event):
    c.itemconfigure(mouth_happy,state=HIDDEN)
    c.itemconfigure(mouth_normal,state=NORMAL)
    c.itemconfigure(mouth_sad,state=HIDDEN)
+   return
+c.bind('<Motion>',show_happy)
+c.bind('<Leave>',hide_happy)
+root.mainloop()
